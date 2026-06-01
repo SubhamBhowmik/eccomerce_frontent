@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link }     from 'react-router-dom';
-import { useDispatch }         from 'react-redux';
 import { useProducts }         from '../../hooks/useProducts';
-import { setSearchQuery }      from '../../store/slices/productsSlice';
 import { CATEGORIES }          from '../../constants/app.constants';
 import ProductGrid             from '../../components/product/ProductGrid';
 import { debounce }            from '../../utils/helpers';
@@ -93,7 +91,6 @@ function FilterBar({ products, onFilter }) {
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function CategoryProductsPage() {
   const { categoryId }       = useParams();
-  const dispatch             = useDispatch();
   const { products, isLoading, isError } = useProducts(categoryId);
 
   const [sort,     setSort]     = useState('default');

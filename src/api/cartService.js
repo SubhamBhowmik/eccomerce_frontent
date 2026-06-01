@@ -4,7 +4,6 @@
  */
 
 import httpClient from './httpClient';
-import { PRODUCT_ENDPOINTS } from '../constants/api.constants';
 
 // Cart API endpoints
 const CART_API = 'https://eccomerce-orderhandling.onrender.com';

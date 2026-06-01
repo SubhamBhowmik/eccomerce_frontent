@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link, useHistory }  from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useCart }           from '../../hooks/useCart';
@@ -20,6 +20,7 @@ function SearchDropdown({ results, onSelect, visible }) {
           key={p.id}
           className={styles.searchItem}
           role="option"
+          aria-selected="false"
           onMouseDown={() => onSelect(p)}
         >
           <img
@@ -89,18 +90,15 @@ export default function Header() {
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const debouncedSearch = useCallback(
-    debounce((q) => {
-      if (q.length < 2) { setSuggestions([]); return; }
-      const lq = q.toLowerCase();
-      setSuggestions(
-        allProducts
-          .filter(p => p.name.toLowerCase().includes(lq) || p.category.toLowerCase().includes(lq))
-          .slice(0, 7)
-      );
-    }, 250),
-    [allProducts]
-  );
+  const debouncedSearch = debounce((q) => {
+    if (q.length < 2) { setSuggestions([]); return; }
+    const lq = q.toLowerCase();
+    setSuggestions(
+      allProducts
+        .filter(p => p.name.toLowerCase().includes(lq) || p.category.toLowerCase().includes(lq))
+        .slice(0, 7)
+    );
+  }, 250);
 
   const handleQueryChange = (e) => {
     const val = e.target.value;

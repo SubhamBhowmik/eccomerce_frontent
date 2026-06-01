@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { login, register, clearError, selectIsAuthenticated, selectAuthStatus, selectAuthError } from '../../store/slices/authSlice';
 import { setUserId, fetchCartAPI } from '../../store/slices/cartSlice';
 import styles from './LoginPage.module.css';
