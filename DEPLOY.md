@@ -119,7 +119,9 @@ The `rewrites` block in `vercel.json` handles this — it routes any non-asset p
 Your backend is on `*.onrender.com` (free tier). It may be **asleep** — first request can take 30+ seconds to wake up. Subsequent requests are fast.
 
 ### "CORS errors" in the browser console
-Your backends need to allow your Vercel domain in their CORS config. Add the Vercel URL (e.g. `https://shopindia.vercel.app`) to each backend's allowed origins.
+**This is already solved!** The `vercel.json` rewrites proxy all `/api/*` calls through Vercel (server-to-server), so the browser only ever talks to `https://your-app.vercel.app` — no cross-origin requests, no CORS errors. The proxy then forwards to the appropriate Render backend.
+
+If you ever switch to a different deployment target and lose the proxy, you'll need to add the Vercel URL (e.g. `https://shopindia.vercel.app`) to each backend's CORS allowed-origins list.
 
 ### "Want a custom domain?"
 Project Settings → **Domains** → Add your domain. Vercel handles DNS + SSL automatically.

@@ -4,14 +4,11 @@
  */
 
 import httpClient from './httpClient';
-
-// Cart API endpoints
-const CART_API = 'https://eccomerce-orderhandling.onrender.com';
+import { CART_ENDPOINTS } from '../constants/api.constants';
 
 const cartService = {
   /**
    * Add product to cart
-   * @param {string} userId 
    * @param {object} cartItem - { productId, quantity, price }
    * @returns {Promise<CartResponse>}
    */
@@ -31,10 +28,7 @@ const cartService = {
 
       console.log('   Payload:', payload);
 
-      const response = await httpClient.post(
-        `${CART_API}/api/cart/add`,
-        payload
-      );
+      const response = await httpClient.post(CART_ENDPOINTS.ADD, payload);
 
       console.log('✅ [CartService] Add to cart successful!');
       console.log('   Response:', response);
@@ -58,10 +52,7 @@ const cartService = {
 
     try {
       // Backend extracts userId from JWT token
-      const response = await httpClient.delete(
-        `${CART_API}/api/cart/remove`,
-        { productId }
-      );
+      const response = await httpClient.delete(CART_ENDPOINTS.REMOVE, { productId });
 
       console.log('✅ [CartService] Remove from cart successful!');
       console.log('   Response:', response);
@@ -83,9 +74,7 @@ const cartService = {
 
     try {
       // Backend extracts userId from JWT token, endpoint is /api/cart
-      const response = await httpClient.get(
-        `${CART_API}/api/cart`
-      );
+      const response = await httpClient.get(CART_ENDPOINTS.LIST);
 
       console.log('✅ [CartService] Fetch cart successful!');
       console.log('   Cart items:', response);
@@ -111,10 +100,7 @@ const cartService = {
 
     try {
       // Backend extracts userId from JWT token
-      const response = await httpClient.put(
-        `${CART_API}/api/cart/update`,
-        { productId, quantity }
-      );
+      const response = await httpClient.put(CART_ENDPOINTS.UPDATE, { productId, quantity });
 
       console.log('✅ [CartService] Update cart item successful!');
       console.log('   Response:', response);
@@ -136,9 +122,7 @@ const cartService = {
 
     try {
       // Backend extracts userId from JWT token
-      const response = await httpClient.delete(
-        `${CART_API}/api/cart/clear`
-      );
+      const response = await httpClient.delete(CART_ENDPOINTS.CLEAR);
 
       console.log('✅ [CartService] Clear cart successful!');
       console.log('   Response:', response);

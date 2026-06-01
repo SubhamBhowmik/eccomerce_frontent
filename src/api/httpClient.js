@@ -98,7 +98,7 @@ const refreshAccessToken = async () => {
   logger.refresh('Calling /api/auth/refresh...');
 
   const response = await fetch(
-    'https://eccomerce-spring-2.onrender.com/api/auth/refresh',
+    '/api/auth/refresh',
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

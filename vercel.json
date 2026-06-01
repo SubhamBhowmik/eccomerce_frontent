@@ -12,7 +12,31 @@
   },
   "rewrites": [
     {
-      "source": "/((?!static|favicon\\.ico|manifest\\.json|logo192\\.png|logo512\\.png|robots\\.txt|.*\\..*).*)",
+      "source": "/api/auth/:path*",
+      "destination": "https://eccomerce-spring-2.onrender.com/api/auth/:path*"
+    },
+    {
+      "source": "/api/products/:path*",
+      "destination": "https://eccomerce-spring-2.onrender.com/api/products/:path*"
+    },
+    {
+      "source": "/api/orders/:path*",
+      "destination": "https://eccomerce-orderhandling.onrender.com/api/orders/:path*"
+    },
+    {
+      "source": "/api/cart/:path*",
+      "destination": "https://eccomerce-orderhandling.onrender.com/api/cart/:path*"
+    },
+    {
+      "source": "/api/payment/:path*",
+      "destination": "https://eccomerce-orderhandling.onrender.com/api/payment/:path*"
+    },
+    {
+      "source": "/api/notifications/:path*",
+      "destination": "https://eccomerce-notification.onrender.com/api/notifications/:path*"
+    },
+    {
+      "source": "/((?!api|static|favicon\\.ico|manifest\\.json|logo192\\.png|logo512\\.png|robots\\.txt|.*\\..*).*)",
       "destination": "/index.html"
     }
   ],
