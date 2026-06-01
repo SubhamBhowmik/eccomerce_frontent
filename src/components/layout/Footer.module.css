@@ -1,0 +1,213 @@
+/* Footer.module.css */
+
+/* ── Footer container ────────────────────────────────────────── */
+.footer {
+  background: var(--c-navy);
+  color: rgba(255,255,255,0.80);
+  font-size: 14px;
+  margin-top: auto;
+}
+
+.inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: var(--sp-12) var(--sp-6) var(--sp-8);
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: var(--sp-10);
+}
+
+/* ── Brand column ───────────────────────────────────────────── */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.logo {
+  font-family: var(--f-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.3px;
+  transition: opacity var(--t-fast) var(--ease);
+}
+.logo:hover { opacity: 0.85; }
+.logoAccent { color: var(--c-crimson); }
+
+.description {
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.60);
+  max-width: 340px;
+}
+
+/* ── Social icons ───────────────────────────────────────────── */
+.social {
+  display: flex;
+  gap: var(--sp-3);
+  margin-top: var(--sp-2);
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-full);
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.65);
+  transition: all var(--t-fast) var(--ease);
+}
+.socialLink:hover {
+  background: var(--c-crimson);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ── Column heading ─────────────────────────────────────────── */
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.columnTitle {
+  font-family: var(--f-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+/* ── Link lists ─────────────────────────────────────────────── */
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.link {
+  color: rgba(255,255,255,0.60);
+  font-size: 13px;
+  transition: color var(--t-fast) var(--ease);
+  display: inline-block;
+}
+.link:hover {
+  color: var(--c-crimson);
+  transform: translateX(3px);
+}
+
+/* ── Contact list ───────────────────────────────────────────── */
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.contactList li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  color: rgba(255,255,255,0.60);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.contactList li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--c-crimson);
+}
+
+/* ── Payment methods bar ────────────────────────────────────── */
+.paymentBar {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: var(--sp-4) 0;
+}
+
+.paymentInner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--sp-6);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.paymentLabel {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.40);
+}
+
+.paymentIcons {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.paymentChip {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.50);
+  padding: 4px 12px;
+  border-radius: var(--r-full);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ── Bottom bar ─────────────────────────────────────────────── */
+.bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: var(--sp-5) 0;
+}
+
+.bottomInner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--sp-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.copyright {
+  font-size: 12px;
+  color: rgba(255,255,255,0.40);
+}
+
+.tagline {
+  font-size: 12px;
+  color: rgba(255,255,255,0.40);
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-8);
+  }
+  .brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 640px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: var(--sp-6);
+  }
+  .paymentInner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .bottomInner {
+    flex-direction: column;
+    text-align: center;
+  }
+}

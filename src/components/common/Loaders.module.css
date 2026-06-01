@@ -1,0 +1,94 @@
+.spinner {
+  border: 2.5px solid var(--c-border);
+  border-top-color: var(--c-crimson);
+  border-radius: 50%;
+  animation: spin 0.65s linear infinite;
+  flex-shrink: 0;
+}
+
+.pageLoader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 300px;
+  color: var(--c-text-3);
+}
+
+.loaderText {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ── Card skeleton ── */
+.cardSkeleton {
+  border-radius: var(--r-lg);
+  background: #fff;
+  overflow: hidden;
+  border: 1px solid var(--c-border);
+}
+
+.skImg {
+  height: 190px;
+  width: 100%;
+}
+
+.skBody {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skLine {
+  height: 13px;
+  border-radius: var(--r-sm);
+}
+
+.w90 { width: 90%; }
+.w80 { width: 80%; }
+.w65 { width: 65%; }
+.w55 { width: 55%; }
+.w45 { width: 45%; }
+.w40 { width: 40%; }
+.w30 { width: 30%; }
+.w75 { width: 75%; }
+.w70 { width: 70%; }
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(188px, 1fr));
+  gap: 16px;
+}
+
+/* ── Detail skeleton ── */
+.detailSkeleton {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding: 24px;
+  background: #fff;
+  border-radius: var(--r-lg);
+}
+
+.dskImg {
+  aspect-ratio: 1;
+  border-radius: var(--r-lg);
+}
+
+.dskInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .detailSkeleton {
+    grid-template-columns: 1fr;
+  }
+  .dskImg { height: 280px; aspect-ratio: unset; }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 12px; }
+}
