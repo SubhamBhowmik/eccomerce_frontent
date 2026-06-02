@@ -397,6 +397,24 @@
   background: #fecaca;
 }
 
+.drawerLoginBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 12px var(--sp-4);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--c-crimson);
+  background: var(--c-crimson-lt);
+  border-radius: var(--r-md);
+  text-decoration: none;
+  transition: background var(--t-fast) var(--ease);
+  width: 100%;
+}
+.drawerLoginBtn:hover {
+  background: #fecaca;
+}
+
 .drawerItem {
   display: flex;
   align-items: center;
@@ -422,9 +440,10 @@
     font-size: 14px;
     padding: 0 42px 0 14px;
   }
-  .cartLabel  { display: none; }
-  .hamburger  { display: flex; }
-  .userMenu   { display: none; }
+  .cartLabel   { display: none; }
+  .hamburger   { display: flex; }
+  .userMenu    { display: none; }
+  .loginBtn    { display: none; }
 }
 
 @media (max-width: 480px) {
