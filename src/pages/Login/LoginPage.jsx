@@ -65,6 +65,11 @@ export default function LoginPage() {
   const status = useSelector(selectAuthStatus);
   const error = useSelector(selectAuthError);
 
+  // Auto-scroll to top when login page mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   const [mode, setMode] = useState(LOGIN);
   const [formData, setFormData] = useState({
     email: '',
