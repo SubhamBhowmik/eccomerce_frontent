@@ -1,5 +1,5 @@
 import { useState }            from 'react';
-import { useParams, Link }     from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
 import { useProductDetail }    from '../../hooks/useProductDetail';
 import { useCart }             from '../../hooks/useCart';
 import { DetailSkeleton }      from '../../components/common/Loaders';
@@ -90,6 +90,7 @@ const OFFERS = [
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function ProductDetailPage() {
   const { productId }                   = useParams();
+  const history                         = useHistory();
   const { product, isLoading, isError } = useProductDetail(productId);
   const { addToCart }                   = useCart();
   const [addedToCart, setAddedToCart]   = useState(false);
@@ -99,6 +100,12 @@ export default function ProductDetailPage() {
     addToCart(product);
     setAddedToCart(true);
     setTimeout(() => setAddedToCart(false), 2000);
+  };
+
+  const handleBuyNow = () => {
+    if (!product) return;
+    addToCart(product);
+    history.push('/payment');
   };
 
   return (
@@ -259,6 +266,7 @@ export default function ProductDetailPage() {
                 </button>
                 <button
                   className={styles.btnBuy}
+                  onClick={handleBuyNow}
                   disabled={product.stock === 0}
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
