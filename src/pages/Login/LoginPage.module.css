@@ -4,7 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 20px;
+  padding: 80px 20px;
+  margin-top: calc(var(--header-h) + var(--navbar-h));
   background:
     radial-gradient(ellipse at 20% 30%, rgba(30, 41, 59, 0.08) 0%, transparent 60%),
     radial-gradient(ellipse at 80% 70%, rgba(220, 38, 38, 0.06) 0%, transparent 60%),
@@ -420,7 +421,8 @@
   .container {
     padding: 16px;
     align-items: flex-start;
-    padding-top: 60px;
+    padding-top: 20px;
+    margin-top: calc(var(--header-h) + var(--navbar-h));
     background:
       radial-gradient(ellipse at 30% 20%, rgba(30, 41, 59, 0.06) 0%, transparent 50%),
       linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
