@@ -67,6 +67,9 @@ const PUBLIC_ENDPOINTS = [
   '/api/auth/login',
   '/api/auth/register',
   '/api/auth/refresh',
+  '/api/auth/send-otp',
+  '/api/auth/verify-otp',
+  '/api/auth/reset-password',
   '/ping',
 ];
 
@@ -130,7 +133,7 @@ async function processResponse(response) {
   }
 
   if (!response.ok) {
-    const message = data?.message || data || `HTTP ${response.status}`;
+    const message = data?.message || data?.error || data || `HTTP ${response.status}`;
     throw new HttpError(response.status, message, data);
   }
 

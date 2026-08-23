@@ -68,6 +68,18 @@ const authService = {
     const response = await httpClient.post(AUTH_ENDPOINTS.VERIFY_OTP, { email, otp });
     return response;
   },
+
+  /**
+   * Reset password using OTP verification
+   * @param {string} email
+   * @param {string} otp
+   * @param {string} newPassword
+   * @returns {Promise<{message: string}>}
+   */
+  resetPassword: async (email, otp, newPassword) => {
+    const response = await httpClient.post(AUTH_ENDPOINTS.RESET_PASSWORD, { email, otp, newPassword });
+    return response;
+  },
 };
 
 export default authService;

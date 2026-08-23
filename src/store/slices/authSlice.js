@@ -115,6 +115,18 @@ export const verifyOtp = createAsyncThunk(
   }
 );
 
+export const resetPassword = createAsyncThunk(
+  'auth/resetPassword',
+  async ({ email, otp, newPassword }, { rejectWithValue }) => {
+    try {
+      const data = await authService.resetPassword(email, otp, newPassword);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message || 'Password reset failed');
+    }
+  }
+);
+
 // ─── Slice ─────────────────────────────────────────────────────────────────────
 const authSlice = createSlice({
   name: 'auth',
@@ -226,6 +238,19 @@ const authSlice = createSlice({
         saveToStorage(STORAGE_KEYS.REFRESH_TOKEN, action.payload.refreshToken);
       })
       .addCase(verifyOtp.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.payload;
+      })
+      // Reset Password
+      .addCase(resetPassword.pending, (state) => {
+        state.status = 'loading';
+        state.error = null;
+      })
+      .addCase(resetPassword.fulfilled, (state) => {
+        state.status = 'succeeded';
+        state.error = null;
+      })
+      .addCase(resetPassword.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.payload;
       });

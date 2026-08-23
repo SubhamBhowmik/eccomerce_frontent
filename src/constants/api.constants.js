@@ -23,12 +23,13 @@ export const PRODUCT_ENDPOINTS = {
 
 // ─── Auth Endpoints ───────────────────────────────────────────────────────────
 export const AUTH_ENDPOINTS = {
-  LOGIN:      `${BASE_URLS.AUTH}/login`,
-  SIGNUP:     `${BASE_URLS.AUTH}/register`,
-  REFRESH:    `${BASE_URLS.AUTH}/refresh`,
-  LOGOUT:     `${BASE_URLS.AUTH}/logout`,
-  SEND_OTP:   `${BASE_URLS.AUTH}/send-otp`,
-  VERIFY_OTP: `${BASE_URLS.AUTH}/verify-otp`,
+  LOGIN:          `${BASE_URLS.AUTH}/login`,
+  SIGNUP:         `${BASE_URLS.AUTH}/register`,
+  REFRESH:        `${BASE_URLS.AUTH}/refresh`,
+  LOGOUT:         `${BASE_URLS.AUTH}/logout`,
+  SEND_OTP:       `${BASE_URLS.AUTH}/send-otp`,
+  VERIFY_OTP:     `${BASE_URLS.AUTH}/verify-otp`,
+  RESET_PASSWORD: `${BASE_URLS.AUTH}/reset-password`,
 };
 
 // ─── Notification Endpoints ───────────────────────────────────────────────────
