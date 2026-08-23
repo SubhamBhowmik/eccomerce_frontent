@@ -163,6 +163,7 @@ export default function HomePage() {
       <div className={styles.content}>
         <div className="page-container">
           <CategoryGrid />
+          <FeaturedSection title="Gifts"          category="Gifts"       emoji="🎁" />
           <FeaturedSection title="Electronics"    category="Electronics" emoji="💻" />
           <FeaturedSection title="Fashion"        category="Fashion"     emoji="👗" />
           <FeaturedSection title="Top Mobiles"   category="Mobile"      emoji="📱" />

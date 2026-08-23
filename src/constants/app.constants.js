@@ -1,6 +1,7 @@
 // ─── Categories ───────────────────────────────────────────────────────────────
 export const CATEGORIES = [
   { id: 'TopOffers',   label: 'Top Offers',       emoji: '🔥' },
+  { id: 'Gifts',       label: 'Gifts',             emoji: '🎁' },
   { id: 'Grocery',     label: 'Grocery',           emoji: '🛒' },
   { id: 'Mobile',      label: 'Mobiles',           emoji: '📱' },
   { id: 'Fashion',     label: 'Fashion',           emoji: '👗' },
